@@ -4,13 +4,13 @@ import java.time.Period;
 class Pessoa {
     private String nome;
     private String cpf;
-    private int anoDeNascimento;
+    private int dataDeNascimento;
     private double altura;
 
-    public Pessoa(String nome, String cpf, int anoDeNascimento, double altura) {
+    public Pessoa(String nome, String cpf, int dataDeNascimento, double altura) {
         this.nome = nome;
         this.cpf = cpf;
-        this.anoDeNascimento = anoDeNascimento;
+        this.dataDeNascimento = dataDeNascimento;
         this.altura = altura;
     }
 
@@ -30,12 +30,12 @@ class Pessoa {
         this.cpf = cpf;
     }
 
-    public int getAnoDeNascimento() {
-        return anoDeNascimento;
+    public int getdataDeNascimento() {
+        return dataDeNascimento;
     }
 
-    public void setAnoDeNascimento(int anoDeNascimento) {
-        this.anoDeNascimento = anoDeNascimento;
+    public void setdataDeNascimento(int dataDeNascimento) {
+        this.dataDeNascimento = dataDeNascimento;
     }
 
     public double getAltura() {
@@ -46,9 +46,14 @@ class Pessoa {
         this.altura = altura;
     }
 
+    public void setIdade(int anoAtual){
+        this.dataDeNascimento = dataDeNascimento;
+    }
+    
+
     public String getIdade() {
         LocalDate hoje = LocalDate.now();
-        LocalDate dataNascimento = LocalDate.of(anoDeNascimento, 1, 1); // Supondo que o dia e mês de nascimento sejam 1 de janeiro
+        LocalDate dataNascimento = LocalDate.of(dataDeNascimento, 1, 1); // Supondo que o dia e mês de nascimento sejam 1 de janeiro
         Period periodo = Period.between(dataNascimento, hoje);
         int anos = periodo.getYears();
         int meses = periodo.getMonths();
